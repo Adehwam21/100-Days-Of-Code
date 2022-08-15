@@ -1,18 +1,21 @@
-import math
+num = int(input("Enter number of events to compute: "))
 
-list1 = [3, 7, 4, 8, 6]
-
+event_data = []
 sum_list = 0
 counter = 0
 summation = 0
 
-for i in list1:
+for i in range(1, num+1):
+    event = float(input(f"Enter value x{i}: "))
+    event_data.append(event)
+
+for i in event_data:
     sum_list += i
     counter += 1
 avg = sum_list / counter
 
-for num in list1:
-    summation += (num - avg) * (num - avg)
+for event in event_data:
+    summation += (event - avg)**2
 
-pop_std = math.sqrt(summation / counter - 1)
-print(round(pop_std, 4))
+pop_std = (summation / (counter - 1))**0.5
+print(f"Sample Standard deviation = {round(pop_std, 4)}")
