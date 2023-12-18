@@ -11,22 +11,12 @@ grade_scale = {
 }
 
 def convert_score_to_grade(score: int):
-    '''
-        converts score to corresponding grade
-        params: score
-        returns: grade: str
-    '''
     for grade_score, grade in grade_scale.items():
         if score >= grade_score:
             return grade
     return "F"
 
 def get_student_data(fname: str, lname: str, score: int):
-    ''' 
-        input function
-        params: fname: str, lname: str, score: int
-        returns: fname, lname, score, grade as message: str
-    '''
     grade = convert_score_to_grade(score)
     message = print(f"Student Name: {lname},{fname}\nScore: {score}\nGrade: {grade}")
     return message
